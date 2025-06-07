@@ -131,7 +131,7 @@ fn os_version() -> Option<String> {
     winver::WindowsVersion::detect().map(|v| v.to_string())
 }
 
-#[cfg(any(target_os = "linux", target_os = "macos"))]
+#[cfg(target_family = "unix")]
 fn os_version() -> Option<String> {
     sys_info::os_release().ok()
 }
